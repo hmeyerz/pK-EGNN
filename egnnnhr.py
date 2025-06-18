@@ -7,6 +7,9 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torch.cuda.amp import autocast, GradScaler
 from egnn_pytorch import EGNN_Network
+from torch.optim.lr_scheduler import ReduceLROnPlateau
+
+#optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
 # 0) start timer
 t0 = time.time()
@@ -227,7 +230,7 @@ optimizer = torch.optim.AdamW([
     {"params": model.parameters(), "lr":1e-4},
     {"params": RBF.parameters(),   "lr":1e-4},
 ], weight_decay=1e-5)
-
+scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, verbose=False)
 # 4) training + validation
 train_hist, val_hist = [], []
 for epoch in range(30):
@@ -245,19 +248,19 @@ for epoch in range(30):
                 x_t = x_t.to(device).unsqueeze(0)
                 with autocast():
                     out1, coords = net(z_t, x_t)
-                    h = out1[0]                     # [1,N,dim]
-                    attn_in = A(h).permute(1,0,2)   # [N,1,dim]
-                    attn_out= mha(attn_in)          # [N,1,dim]
-                    attn_out= attn_out.permute(1,0,2)  # [1,N,dim]
+                    #h = out1[0]                     # [1,N,dim]
+                    #attn_in = A(h).permute(1,0,2)   # [N,1,dim]
+                    attn_out= mha(A(out1[0]).permute(1,0,2)).permute(1,0,2).to(device)         # [N,1,dim]
+                    #attn_out= attn_out#.permute(1,0,2)  # [1,N,dim]
 
                     dmat = pairwise_distances(coords).to(device)
-                    rbf  = RBF(dmat)
-                    grbf = aggregate_rbf_features(rbf).to(device)
+                    #rbf  = RBF(dmat)
+                    grbf = aggregate_rbf_features(RBF(dmat)).to(device)
 
                     gnode= model.poolmha2(model.poolmha(attn_out))[:,0].to(device)
-                    gemb = torch.hstack([gnode, grbf]).unsqueeze(2).to(device)
-                    e_pred = model(gemb.permute(2,1,0))
-                    pooled = model.pool(e_pred)
+                    gemb = torch.hstack([gnode, grbf]).unsqueeze(2).permute(2,1,0).to(device)
+                    #e_pred = model(gemb.permute(2,1,0))
+                    pooled = model.pool(model(gemb))
                 outs.append(pooled)
             
             preds  = torch.hstack(outs).to(device).flatten()
@@ -269,6 +272,8 @@ for epoch in range(30):
             if use_amp:
                 
                 scaler.scale(loss).backward()
+                #scheduler.step(loss)
+                
             else:
                 loss.backward()
             epoch_train_losses.append(loss.item())
@@ -291,19 +296,20 @@ for epoch in range(30):
                     z_t = z_t.to(device).unsqueeze(0)
                     x_t = x_t.to(device).unsqueeze(0)
                     out1, coords = net(z_t, x_t)
-                    h = out1[0]
-                    attn_in = A(h).permute(1,0,2)
-                    attn_out= mha(attn_in)
-                    attn_out= attn_out.permute(1,0,2)
+                    #out1, coords = net(z_t, x_t)
+                    #h = out1[0]                     # [1,N,dim]
+                    #attn_in = A(h).permute(1,0,2)   # [N,1,dim]
+                    attn_out= mha(A(out1[0]).permute(1,0,2)).permute(1,0,2).to(device)       # [N,1,dim]
+                    #attn_out= attn_out#.permute(1,0,2)  # [1,N,dim]
 
                     dmat = pairwise_distances(coords).to(device)
-                    rbf  = RBF(dmat)
-                    grbf = aggregate_rbf_features(rbf).to(device)
+                    #rbf  = RBF(dmat)
+                    grbf = aggregate_rbf_features(RBF(dmat)).to(device)
 
                     gnode= model.poolmha2(model.poolmha(attn_out))[:,0].to(device)
-                    gemb = torch.hstack([gnode, grbf]).unsqueeze(2).to(device)
-                    e_pred = model(gemb.permute(2,1,0))
-                    pooled = model.pool(e_pred)
+                    gemb = torch.hstack([gnode, grbf]).unsqueeze(2).permute(2,1,0).to(device)
+                    #e_pred = model(gemb.permute(2,1,0))
+                    pooled = model.pool(model(gemb)).to(device)
                     outs.append(pooled)
                 with autocast():
                     preds  = torch.hstack(outs).to(device).flatten()
@@ -312,6 +318,8 @@ for epoch in range(30):
                 #preds  = torch.hstack(outs).to(device).flatten()
                 target = torch.hstack(ys).to(device).flatten()
                 val_loss = criterion(preds, target)
+                scheduler.step(val_loss)  # val_loss = your average validation loss
+
                 epoch_val_losses.append(val_loss.item())
 
                     # 5) save a single timestamped checkpoint
