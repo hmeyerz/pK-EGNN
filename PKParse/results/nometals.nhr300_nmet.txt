@@ -1,0 +1,317 @@
+runid: 20250707_235919
+dim = num heads embeded dim: 10
+depth 2
+hidden_dim: 3
+basis 64
+hidden dim 8. lower optimizer and inc batch size to 25 from 5. changed mha to act on all and more thx to mam and chat anon and more
+
+FIX SCHEDULER Max schedular cool 0 wait 0 min 1e-8 patience zero cooldown zero
+L1Loss()
+wandb: Tracking run with wandb version 0.20.1
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Epoch 0
+/home/becjessi/nhr300_nmet.py:331: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3571.)
+  b=torch.concat((rbf[:,0].T,out1[0].T.unsqueeze(2)))
+tensor(1.2428, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.3008], device='cuda:0', dtype=torch.float16) tensor(0.0057, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+1.835017168521881 min
+ → avg train loss: 1.2657
+ → avg   val loss: 1.0787
+Epoch 1
+tensor(0.7520, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.1582], device='cuda:0', dtype=torch.float16) tensor(-0.0969, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+3.4670382301012674 min
+ → avg train loss: 1.1992
+ → avg   val loss: 1.0837
+Epoch 2
+tensor(0.8006, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.1592], device='cuda:0', dtype=torch.float16) tensor(-0.0964, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+5.095383552710215 min
+ → avg train loss: 1.1973
+ → avg   val loss: 1.0811
+Epoch 3
+tensor(1.2335, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.3223], device='cuda:0', dtype=torch.float16) tensor(0.0232, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+6.721883539358775 min
+ → avg train loss: 1.1795
+ → avg   val loss: 1.0242
+Epoch 4
+tensor(0.6718, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.9165], device='cuda:0', dtype=torch.float16) tensor(-0.2323, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+8.351655864715577 min
+ → avg train loss: 1.0787
+ → avg   val loss: 0.9597
+Epoch 5
+tensor(1.0445, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8174], device='cuda:0', dtype=torch.float16) tensor(-0.2937, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+9.978061203161875 min
+ → avg train loss: 1.0108
+ → avg   val loss: 0.9105
+Epoch 6
+tensor(0.8868, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.1055], device='cuda:0', dtype=torch.float16) tensor(-0.0908, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+11.602321799596151 min
+ → avg train loss: 0.9524
+ → avg   val loss: 0.9250
+Epoch 7
+tensor(0.8216, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7520], device='cuda:0', dtype=torch.float16) tensor(-0.3191, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+13.226371113459269 min
+ → avg train loss: 0.9630
+ → avg   val loss: 0.8904
+Epoch 8
+tensor(0.7822, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.6021], device='cuda:0', dtype=torch.float16) tensor(-0.4089, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+14.84954828818639 min
+ → avg train loss: 0.9136
+ → avg   val loss: 0.8777
+Epoch 9
+tensor(0.9139, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8564], device='cuda:0', dtype=torch.float16) tensor(-0.2383, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+16.470952848593395 min
+ → avg train loss: 0.9064
+ → avg   val loss: 0.8729
+Epoch 10
+tensor(1.1340, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.0684], device='cuda:0', dtype=torch.float16) tensor(-0.1010, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+18.093767635027568 min
+ → avg train loss: 0.9038
+ → avg   val loss: 0.8914
+Epoch 11
+tensor(0.7176, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8008], device='cuda:0', dtype=torch.float16) tensor(-0.2734, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+19.71523388226827 min
+ → avg train loss: 0.8991
+ → avg   val loss: 0.8693
+Epoch 12
+tensor(0.9967, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.3818], device='cuda:0', dtype=torch.float16) tensor(-0.5454, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+21.338716753323872 min
+ → avg train loss: 0.9065
+ → avg   val loss: 0.8939
+Epoch 13
+tensor(0.9556, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.5859], device='cuda:0', dtype=torch.float16) tensor(-0.4114, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+22.96168244679769 min
+ → avg train loss: 0.8959
+ → avg   val loss: 0.8593
+Epoch 14
+tensor(0.7326, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8384], device='cuda:0', dtype=torch.float16) tensor(-0.2466, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+24.583926161130268 min
+ → avg train loss: 0.8876
+ → avg   val loss: 0.8505
+Epoch 15
+tensor(0.7295, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8174], device='cuda:0', dtype=torch.float16) tensor(-0.2585, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+26.199256964524587 min
+ → avg train loss: 0.8724
+ → avg   val loss: 0.8464
+Epoch 16
+tensor(0.9854, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.3315], device='cuda:0', dtype=torch.float16) tensor(-0.5698, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+27.780147564411163 min
+ → avg train loss: 0.8629
+ → avg   val loss: 0.8397
+Epoch 17
+tensor(1.1606, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8457], device='cuda:0', dtype=torch.float16) tensor(-0.2354, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+29.355690598487854 min
+ → avg train loss: 0.8625
+ → avg   val loss: 0.8101
+Epoch 18
+tensor(1.2591, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.9551], device='cuda:0', dtype=torch.float16) tensor(-0.1631, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+30.931552811463675 min
+ → avg train loss: 0.8510
+ → avg   val loss: 0.7975
+Epoch 19
+tensor(1.1934, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.], device='cuda:0', dtype=torch.float16) tensor(-0.1304, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+32.507873916625975 min
+ → avg train loss: 0.8623
+ → avg   val loss: 0.8012
+Epoch 20
+tensor(0.9238, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.3572], device='cuda:0', dtype=torch.float16) tensor(-0.5439, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+34.08254325787227 min
+ → avg train loss: 0.8448
+ → avg   val loss: 0.8063
+Epoch 21
+tensor(0.9134, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8638], device='cuda:0', dtype=torch.float16) tensor(-0.2076, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+35.65696090857188 min
+ → avg train loss: 0.8351
+ → avg   val loss: 0.7853
+Epoch 22
+tensor(0.9689, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.1934], device='cuda:0', dtype=torch.float16) tensor(0.0073, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+37.232447536786395 min
+ → avg train loss: 0.8181
+ → avg   val loss: 0.7926
+Epoch 23
+tensor(0.9255, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.9058], device='cuda:0', dtype=torch.float16) tensor(-0.1813, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+38.8071614464124 min
+ → avg train loss: 0.8212
+ → avg   val loss: 0.7602
+Epoch 24
+tensor(0.9340, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.9214], device='cuda:0', dtype=torch.float16) tensor(-0.1642, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+40.38277810414632 min
+ → avg train loss: 0.8134
+ → avg   val loss: 0.7694
+Epoch 25
+tensor(1.3090, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8018], device='cuda:0', dtype=torch.float16) tensor(-0.2428, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+41.95697904825211 min
+ → avg train loss: 0.8054
+ → avg   val loss: 0.7462
+Epoch 26
+tensor(0.7330, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.4990], device='cuda:0', dtype=torch.float16) tensor(-0.4314, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+43.531737613677976 min
+ → avg train loss: 0.7951
+ → avg   val loss: 0.7496
+Epoch 27
+tensor(0.8350, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.4285], device='cuda:0', dtype=torch.float16) tensor(-0.4788, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+45.106778995196024 min
+ → avg train loss: 0.7895
+ → avg   val loss: 0.7743
+Epoch 28
+tensor(0.8985, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7188], device='cuda:0', dtype=torch.float16) tensor(-0.2812, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+46.68173413674037 min
+ → avg train loss: 0.7959
+ → avg   val loss: 0.7546
+Epoch 29
+tensor(0.9841, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.1460], device='cuda:0', dtype=torch.float16) tensor(-0.6538, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+48.256662690639494 min
+ → avg train loss: 0.7749
+ → avg   val loss: 0.7407
+Epoch 30
+tensor(0.7432, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7358], device='cuda:0', dtype=torch.float16) tensor(-0.2585, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+49.83178088665009 min
+ → avg train loss: 0.7557
+ → avg   val loss: 0.7281
+Epoch 31
+tensor(1.0449, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.5308], device='cuda:0', dtype=torch.float16) tensor(-0.3933, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+51.40591263771057 min
+ → avg train loss: 0.7594
+ → avg   val loss: 0.7202
+Epoch 32
+tensor(0.6820, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.4915], device='cuda:0', dtype=torch.float16) tensor(-0.4182, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+52.98256361087163 min
+ → avg train loss: 0.7644
+ → avg   val loss: 0.7540
+Epoch 33
+tensor(0.6440, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.5044], device='cuda:0', dtype=torch.float16) tensor(-0.4070, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+54.55727921724319 min
+ → avg train loss: 0.7789
+ → avg   val loss: 0.7252
+Epoch 34
+tensor(0.9566, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7876], device='cuda:0', dtype=torch.float16) tensor(-0.2113, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+56.1324017683665 min
+ → avg train loss: 0.7447
+ → avg   val loss: 0.7159
+Epoch 35
+tensor(0.8516, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.9131], device='cuda:0', dtype=torch.float16) tensor(-0.1242, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+57.731137251853944 min
+ → avg train loss: 0.7300
+ → avg   val loss: 0.7149
+Epoch 36
+tensor(0.7916, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.4578], device='cuda:0', dtype=torch.float16) tensor(-0.4265, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+59.33091471195221 min
+ → avg train loss: 0.7223
+ → avg   val loss: 0.7128
+Epoch 37
+tensor(0.9348, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.2234], device='cuda:0', dtype=torch.float16) tensor(-0.5835, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+60.92388976812363 min
+ → avg train loss: 0.7137
+ → avg   val loss: 0.6907
+Epoch 38
+tensor(0.3317, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.1367], device='cuda:0', dtype=torch.float16) tensor(0.0371, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+62.498783600330356 min
+ → avg train loss: 0.7166
+ → avg   val loss: 0.7342
+Epoch 39
+tensor(0.6858, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7671], device='cuda:0', dtype=torch.float16) tensor(-0.2157, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+64.06943469047546 min
+ → avg train loss: 0.7124
+ → avg   val loss: 0.6815
+Epoch 40
+tensor(0.5664, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8184], device='cuda:0', dtype=torch.float16) tensor(-0.1799, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+65.64687510331471 min
+ → avg train loss: 0.7068
+ → avg   val loss: 0.6935
+Epoch 41
+tensor(0.6072, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.0664], device='cuda:0', dtype=torch.float16) tensor(-0.0096, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+67.24129488468171 min
+ → avg train loss: 0.7134
+ → avg   val loss: 0.6762
+Epoch 42
+tensor(0.6554, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7529], device='cuda:0', dtype=torch.float16) tensor(-0.2211, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+68.81457466681799 min
+ → avg train loss: 0.6919
+ → avg   val loss: 0.6780
+Epoch 43
+tensor(1.1723, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.6821], device='cuda:0', dtype=torch.float16) tensor(-0.2646, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+70.38427707751592 min
+ → avg train loss: 0.6835
+ → avg   val loss: 0.6699
+Epoch 44
+tensor(0.8280, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.9683], device='cuda:0', dtype=torch.float16) tensor(-0.0754, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+71.95457221666972 min
+ → avg train loss: 0.7046
+ → avg   val loss: 0.7302
+Epoch 45
+tensor(1.1736, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8257], device='cuda:0', dtype=torch.float16) tensor(-0.1683, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+73.5237986445427 min
+ → avg train loss: 0.7120
+ → avg   val loss: 0.6812
+Epoch 46
+tensor(0.8599, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.8994], device='cuda:0', dtype=torch.float16) tensor(-0.1121, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+75.0933426698049 min
+ → avg train loss: 0.6922
+ → avg   val loss: 0.6844
+Epoch 47
+tensor(0.7753, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-1.0889], device='cuda:0', dtype=torch.float16) tensor(0.0116, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+76.66189572413762 min
+ → avg train loss: 0.6957
+ → avg   val loss: 0.6600
+Epoch 48
+tensor(0.6681, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.7798], device='cuda:0', dtype=torch.float16) tensor(-0.1913, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+78.22983796596527 min
+ → avg train loss: 0.6731
+ → avg   val loss: 0.6611
+Epoch 49
+tensor(0.3381, device='cuda:0', grad_fn=<MeanBackward0>)
+pooled tensor([-0.6855], device='cuda:0', dtype=torch.float16) tensor(-0.2527, device='cuda:0', dtype=torch.float16) tensor(0.1299, device='cuda:0')
+79.80029004017511 min
+ → avg train loss: 0.6633
+ → avg   val loss: 0.6630
+Epoch 50
+salloc: Job 8641466 has exceeded its time limit and its allocation has been revoked.
+                                                                                    blogin5:~ $ client_loop: send disconnect: Broken pipe
+jrhoernschemeyer@localhost:~/Desktop/data_prep/PKParse> 
