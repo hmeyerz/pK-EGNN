@@ -1,0 +1,1 @@
+credit Jessi Rose Hoernschemeyer Freie Universität Berlin Pypka pkPDB pKAI SchNet ResNet AttentionIsAllYouNeed EGNN_Network PDBFixer Amber 2022 Reduce program Numpy Scipy Pytorch. See piKa for credits https://github.com/hmeyerz/piKa
